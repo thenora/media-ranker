@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MediaRanker</title>
+    <title>PizzaRanker</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -21,13 +21,13 @@
   <nav class="app-header__nav">
     <ul class="nav app-header__site-nav-container">
       <li class="nav-item app-header__nav_item">
-        <a class="nav-link" href="/">View top media</a>
+        <a class="nav-link" href="/">View top pizzas</a>
       </li>
       <li class="nav-item app-header__nav_item">
-        <a class="nav-link" href="/works">View all media</a>
+        <a class="nav-link" href="/pizzas">View all pizzas</a>
       </li>
       <li class="nav-item app-header__nav_item">
-        <a class="nav-link" href="/works/new">Add a new work</a>
+        <a class="nav-link" href="/pizzas/new">Add a new pizza</a>
       </li>
       <li class="nav-item app-header__nav_item">
         <a class="nav-link" href="/users">View all users</a>
@@ -35,7 +35,7 @@
     </ul>
     <ul class="nav app-header__user-nav-container">
 
-      <li class="nav-item app-header__nav_item">
+      <li class="nav-item app-header__nav_item"><!-- TODO add user info-->
         <a class="btn btn-primary" href="/users/617">Logged in as nora</a>
       </li>
       <li class="nav-item app-header__nav_item">
