@@ -1,9 +1,15 @@
 class PizzasController < ApplicationController
 
   def index
-    @thin = Pizza.where(crust: "thick")
-    @thick = Pizza.where(crust: "thick")
-    @deep = Pizza.where(crust: "deep-dish")
+    @thin_crusts = Pizza.where(crust: "thin")
+    @thick_crusts = Pizza.where(crust: "thick")
+    @deep_crusts = Pizza.where(crust: "deep-dish")
+  end
+
+  def home
+    @thin_crusts = Pizza.popular("thin")
+    @thick_crusts = Pizza.where(crust: "thick")
+    @deep_crusts = Pizza.where(crust: "deep-dish")
   end
 
   def show
@@ -21,11 +27,11 @@ class PizzasController < ApplicationController
   def create
     @pizza = Pizza.new(pizza_params) # Instantiate a new pizza
     if @pizza.save
-      flash[:success] = "Your pizza is on the menu!"
+      # flash[:success] = "Your pizza is on the menu!"
       redirect_to pizza_path(@pizza.id)
       return
     else # if save fails
-      flash.now[:error] = "Oops. We couldn't add your pizza to the menu."
+      # flash.now[:error] = "Oops. We couldn't add your pizza to the menu."
       render :new, status: :bad_request # show the new pizza form again
   end
 
@@ -45,11 +51,11 @@ class PizzasController < ApplicationController
       head :not_found
       return
     elsif @pizza.update(pizza_params)
-      flash[:success] = "Pizza updated!"
+      # flash[:success] = "Pizza updated!"
       redirect_to pizza_path(@pizza.id) 
       return
     else # save failed
-      flash.now[:error] = "Oops! We couldn't update your pizza."
+      # flash.now[:error] = "Oops! We couldn't update your pizza."
       render :edit, status: :bad_request # show the new pizza form view again
       return
     end

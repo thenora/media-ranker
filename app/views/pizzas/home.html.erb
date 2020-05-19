@@ -1,0 +1,87 @@
+
+<section class="spotlight">
+  <h2 class="spotlight__header"><span class="spotlight__header--prefix">Pizza Spotlight: </span><a class="spotlight__link-to" href="/pizza/1">Tasty Pizza</a> with a thick crust
+  <%# TODO highlighted pizza %></h2>
+  <p class="spotlight__description">
+    <!-- TODO --> votes - Topped with <%= "toppings" %></p>  
+</section>
+<hr class="root__hr" />
+<section class="top-ten__container">
+  <section class="top-ten__list-container">
+    <h2 class="top-ten__header">
+    Top Thin Crust
+    </h2>
+    <ul class="list-group top-ten__list">
+      <% @thin_crusts.each do |thin|  %>
+        <li class="list-group-item">
+          <h4>
+            <h4><%= link_to thin.name, pizza_path(thin.id) %>
+              <small class='top-ten__creator'>with <%= thin.sauce %> sauce</small>
+            </h4>
+            <!-- TODO - what should replace creator? -->
+          <p><!-- TODO add votes -->28 votes</p>
+        </li>
+      <% end %>
+  
+      <%# TODO - Add list of thin crust pizzas%>
+      
+      </ul>
+
+  </section>
+    <section class="top-ten__list-container">
+    <h2 class="top-ten__header">
+    Top Thin Crust
+    </h2>
+    <ul class="list-group top-ten__list">
+      <li class="list-group-item">
+        <h4>
+          <a href="/pizzas/1">YUM YUM</a>
+          <!-- TODO - what should replace creator? --><small class="top-ten__creator">by J.K. Rowling</small>
+        </h4>
+        <p><!-- TODO add votes -->28 votes</p>
+      </li>
+  
+      <%# TODO - Add list of thin crust pizzas%>
+      
+      </ul>
+
+  </section>
+  <section class="top-ten__list-container">
+    <h2 class="top-ten__header">
+    Top Thick Crust
+    </h2>
+    <ul class="list-group top-ten__list">
+      <li class="list-group-item">
+        <h4>
+          <a href="/pizzas/1">YUM YUM</a>
+          <!-- TODO - what should replace creator? --><small class="top-ten__creator">by J.K. Rowling</small>
+        </h4>
+        <p><!-- TODO add votes -->28 votes</p>
+      </li>
+  
+      <%# TODO - Add list of Thick crust pizzas%>
+      
+      </ul>
+
+  </section>
+  
+  <section class="top-ten__list-container">
+    <h2 class="top-ten__header">
+    Top Deep Dish
+    </h2>
+    <ul class="list-group top-ten__list">
+      <li class="list-group-item">
+        <h4>
+          <a href="/pizzas/1">YUM YUM</a>
+          <!-- TODO - what should replace creator? --><small class="top-ten__creator">by J.K. Rowling</small>
+        </h4>
+        <p><!-- TODO add votes -->28 votes</p>
+      </li>
+  
+      <%# TODO - Add list of deep dish crust pizzas%>
+      
+      </ul>
+
+  </section>
+    
+</section>
