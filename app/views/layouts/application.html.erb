@@ -12,25 +12,23 @@
   <body> 
     <header class="app-header__header">
   <h1>
-    <a href="/">Media Ranker</a>
-    <small>Ranking the Best of Media</small>
+    <%= link_to 'Media Ranker', root_path %>
+    <small>Ranking the Best of Everything</small>
   </h1>
-
-  <!-- TODO - need to code this -->
 
   <nav class="app-header__nav">
     <ul class="nav app-header__site-nav-container">
       <li class="nav-item app-header__nav_item">
-        <a class="nav-link" href="/">View top media</a>
+        <%= link_to 'View top media', root_path %>
       </li>
       <li class="nav-item app-header__nav_item">
-        <a class="nav-link" href="/movies">View all media</a>
+        <%= link_to 'View all media', works_path %>
       </li>
       <li class="nav-item app-header__nav_item">
-        <a class="nav-link" href="/works/new">Add a new work</a>
+        <%= link_to 'Add new media', new_work_path %>
       </li>
       <li class="nav-item app-header__nav_item">
-        <a class="nav-link" href="/users">View all users</a>
+        <%= link_to 'View all users', users_path %>
       </li>
     </ul>
     <ul class="nav app-header__user-nav-container">
@@ -45,6 +43,9 @@
 
     </ul>
   </nav>
+
+  <!-- TODO Add error messages and flash -->
+
 </header>
     
     <%= yield %>
