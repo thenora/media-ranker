@@ -1,7 +1,6 @@
 <section class="spotlight">
   <h2 class="spotlight__header">
-    <span class="spotlight__header--prefix">Media Spotlight: </span><a class="spotlight__link-to" href="/work/1">First Media</a>
-  <%# TODO highlighted work %>
+    <span class="spotlight__header--prefix">Media Spotlight: </span><%= link_to @spotlight.title, work_path(@spotlight.id, class: "spotlight__link-to") %>
   </h2>
   <p class="spotlight__description">
     <!-- TODO votes and description--> votes - description 

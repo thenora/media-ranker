@@ -14,6 +14,7 @@ class WorksController < ApplicationController
     @movies = Work.top_movies
     @books = Work.top_books
     @albums = Work.top_albums
+    @spotlight = Work.spotlight
   end
 
   def show

@@ -36,6 +36,11 @@ class Work < ApplicationRecord
     return albums.limit(10)
   end
 
-  # TODO add spotlight ?
+  def self.spotlight
+    @works = Work.all
+    return @works.sample
+  end
+
+  # TODO Base spotlight on votes
 
 end
