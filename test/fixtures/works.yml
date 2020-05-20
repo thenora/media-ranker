@@ -1,0 +1,30 @@
+movie1:
+  title: movie1
+  category: movie
+  creator: Me Myself
+  description: Blah blah stuff n things.
+  publication_year: 2010
+movie2:
+  title: movie2
+  category: movie
+  creator: Dog
+  description: Blah blah stuff n things.
+  publication_year: 2015
+movie3:
+  title: movie3
+  category: movie
+  creator: Myself
+  description: Blah blah stuff n things.
+  publication_year: 2013
+book1:
+  title: book1
+  category: book
+  creator: Me
+  description: Blah blah stuff n things.
+  publication_year: 2011
+album1:
+  title: album1
+  category: album
+  creator: Me Myself & I
+  description: Blah blah stuff n things.
+  publication_year: 2009
