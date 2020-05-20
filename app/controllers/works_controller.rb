@@ -70,7 +70,7 @@ class WorksController < ApplicationController
       return
     end
 
-    # TODO - what about votes when a pizza is destroyed?
+    # TODO - what about votes when a work is destroyed?
     @work.destroy
 
     redirect_to work_path
