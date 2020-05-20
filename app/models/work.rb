@@ -2,6 +2,7 @@ class Work < ApplicationRecord
   # TODO add has many
 
   validates :category, :title, :creator, :description, presence: true
+  validates :title, uniqueness: { case_sensitive: false} 
   validates :publication_year, presence: true, numericality: { only_integer: true }
 
   # TODO add votes
