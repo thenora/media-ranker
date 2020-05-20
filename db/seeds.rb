@@ -14,24 +14,24 @@ puts "Loading raw work data from #{WORKS_FILE}"
 
 work_failures = []
 CSV.foreach(WORKS_FILE, :headers => true) do |row|
-  work = Work.new
-  work.id = row['id']
+  work = Work.new 
   work.category = row['category']
   work.title = row['title']
   work.creator = row['creator']
   work.publication_year = row['publication_year']
   work.description = row['description']
   successful = work.save
+
   if !successful
     work_failures << work
     puts "Failed to save work: #{work.inspect}"
   else
-    puts "Created work: #{work.inspect}"
+    puts "created work: #{work.inspect}"
   end
 end
 
 puts "Added #{Work.count} media records"
-puts "Oops! #{work_failures.length} media failed to save"
+puts "#{work_failures.length} media failed to save"
 
 puts "Manually resetting each table's PK sequence"
 ActiveRecord::Base.connection.tables.each do |t|

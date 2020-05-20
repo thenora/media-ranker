@@ -16,6 +16,11 @@ ActiveRecord::Schema.define(version: 2020_05_20_021245) do
   enable_extension "plpgsql"
 
   create_table "works", force: :cascade do |t|
+    t.string "category"
+    t.string "title"
+    t.string "creator"
+    t.integer "publication_year"
+    t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
