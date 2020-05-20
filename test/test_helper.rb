@@ -19,6 +19,6 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
 
-  # TODO add login user
+  # TODO Add login info
 
 end
