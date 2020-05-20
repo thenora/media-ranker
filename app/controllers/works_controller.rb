@@ -66,18 +66,25 @@ class WorksController < ApplicationController
   end
 
   def destroy
+    @work = Work.find_by(id: params[:id])
+
     if @work.nil?
       head :not_found
       return
+    elsif @work.destroy
+      # TODO - what about votes when a work is destroyed?
+      flash[:success] = "#{@work.title} was successfully deleted."
+      redirect_to root_path
+      return
+    else
+      flash.now[:error] = "Oops! This #{@work.category} could not be deleted."
+      redirect_to work_path(@work.id)
+      return
     end
-
-    # TODO - what about votes when a work is destroyed?
-    @work.destroy
-
-    redirect_to work_path
-    return
   end
 
+
+  
   private
 
   def work_params
