@@ -37,6 +37,7 @@ describe Work do
     end
 
     # TODO Add more is invalid without validation tests
+    # TODO add publication date must be number
 
     # TODO fix unique title test
     it 'is invalid with a non-unique title' do
@@ -59,6 +60,9 @@ describe Work do
 
     end
   end
+
+  # TODO Test custom methods
+    # For top-10 or spotlight, what if there are less than 10 works? What if there are no works?
 
   # describe 'relations' do
   #   it "has an author" do
