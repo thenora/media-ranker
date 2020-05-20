@@ -1,10 +1,6 @@
 class WorksController < ApplicationController
 
-
-
-
   def index
-    @work = Work.all
     @movies = Work.sort_movies
     @books = Work.sort_books
     @albums = Work.sort_albums
