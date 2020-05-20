@@ -1,15 +1,19 @@
 class WorksController < ApplicationController
+
+
+
+
   def index
     @work = Work.all
-    @movies = Work.sort_works("movie")
-    @books = Work.sort_works("book")
-    @albums = Work.sort_works("album")
+    @movies = Work.sort_movies
+    @books = Work.sort_books
+    @albums = Work.sort_albums
   end
 
   def home
-    @albums = Work.popular("album")
-    @books = Work.popular("book")
-    @movies = Work.popular("movie")
+    @movies = Work.top_movies
+    @books = Work.top_books
+    @albums = Work.top_albums
   end
 
   def show
