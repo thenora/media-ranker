@@ -115,7 +115,27 @@ describe Work do
       expect(@dup_book.errors.messages).must_include :title
 
     end
+
+    it 'is invalid if title is the same with different case' do
+      # Arrange
+       @dup_movie_case = Work.create(
+        title: 'MoVie3', 
+        category: 'movie',
+        creator: 'Myself',
+        description: 'Blah blah stuff n things.',
+        publication_year: 2013
+        )
+
+      # Act
+
+      # Assert
+      expect(@dup_movie_case.valid?).must_equal false
+      expect(@dup_movie_case.errors.messages).must_include :title
+
+    end
   end
+
+  # TODO add relationship tests
 
   # TODO Test custom methods
     # For top-10 or spotlight, what if there are less than 10 works? What if there are no works?
