@@ -1,16 +1,16 @@
 Rails.application.routes.draw do
   root to: 'works#home'
 
-
-  resources :works
-  resources :users do
-    resources :votes, only: [:index, :create]
+  resources :works do
+    resources :votes, only: [:index, :create] # TODO Do I need index?
   end
+
+  resources :users, only: [:index, :show]
 
   get "/login", to: "users#login_form", as: "login"
   post "/login", to: "users#login"
   post "/logout", to: "users#logout", as: "logout"
-  get "/users/current", to: "users#current", as: "current_user"
+  get "/users/current", to: "users#current", as: "current_user" # TODO Do I need a current user view?
 
   # TODO - delete before turning in
   # sample route explanations from Ada Books
