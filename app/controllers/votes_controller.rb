@@ -10,17 +10,24 @@ class VotesController < ApplicationController
       return
     end
     
-    if session[:user_id]
-      vote = Vote.create(user_id: user.id, work_id: work.id)
-      if vote.save 
-        flash[:success] = 'Successfully upvoted!'
-      else
-        flash[:error] = 'You already voted for this'
-      end
+    if session[:user_id] # if user is logged in
+      vote 
     end
     
-    redirect_to request.referrer || work_path(work.id)
+    redirect_back(fallback_location: root_path)
     return
+  end
+
+  def vote
+    upvote = Vote.create(
+      user_id: user.id, 
+      work_id: work.id
+    )
+      if upvote.save 
+        flash[:success] = 'Successfully upvoted!'
+      else
+        flash[:error] = 'You already voted for this work'
+      end
   end
   
   
