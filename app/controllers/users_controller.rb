@@ -2,9 +2,7 @@ class UsersController < ApplicationController
   # skip_before_action :require_login, except: [:current]
   # TODO or should it be: before_action :require_login, only: [:current]
 
-  def login_form
-    @user = User.new
-  end
+
   
   def index
       @users = User.all
@@ -18,21 +16,25 @@ class UsersController < ApplicationController
     end
   end
 
+  def login_form
+    @user = User.new
+  end
+
   def login
     # username = params[:user][:username]
-    user = User.find_by(username: params[:username])
+    @user = User.find_by(username: params[:username])
 
-    if user # returning user
-      session[:user_id] = user.id
-      session[:username] = user.username
+    if @user # returning user
+      session[:user_id] = @user.id
+      session[:username] = @user.username
       
       flash[:success] = "Successfully logged in as existing user #{username}"
     else # if user doesn't exist
-      user = User.create(username: params[:username]) 
-      session[:user_id] = user.id
-      session[:username] = user.username
+      @user = User.create(username: params[:username]) 
+      session[:user_id] = @user.id
+      session[:username] = @user.username
 
-      flash[:success] = "Successfully created new user #{user.username} with ID #{user.id}"
+      flash[:success] = "Successfully created new user #{@user.username} with ID #{@user.id}"
     end
 
     redirect_to root_path
