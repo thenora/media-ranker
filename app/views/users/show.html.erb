@@ -1,2 +1,31 @@
-<h1>User#show</h1>
-<p>Find me in app/views/user/show.html.erb</p>
+<h2>User Summary: <%= @user.username %> </h2> <!-- Note: Original site has a link, but that just links to the current page -->
+<p>Joined site <%= @user.created_at.strftime("%m/%d/%Y") %></p>
+
+<section class="user-votes__container">
+  <h3 class="user-votes__header">Votes</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Media Title</th>
+        <th>Created By</th>
+        <th>Published</th>
+        <th>Category</th>
+        <th>Voted On</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- TODO add votes -->
+        <tr>
+          <td><a href="/works/1">VOTED WORK NAME GOES HERE</a></td>
+          <td>Nigel Lesch DVM -0</td>
+          <td>1962</td>
+          <td>Book</td>
+          <td>May 15, 2020</td>
+        </tr>
+    </tbody>
+  </table>
+</section>
+
+
+<%= link_to 'See All Users', users_path, class: "btn btn-secondary" %>
+<%= link_to 'Back to Media List', root_path, class: "btn btn-primary" %>
