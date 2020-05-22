@@ -1,5 +1,6 @@
 class Work < ApplicationRecord
-  # TODO add has many
+  has_many :votes
+  has_many :users, :through => :votes
 
   validates :category, :title, :creator, :description, presence: true
   validates :title, uniqueness: { case_sensitive: false} 
@@ -29,6 +30,8 @@ class Work < ApplicationRecord
     return movies.limit(10)
   end
 
+
+  # TODO base top media on votes
   def self.top_books
     books = self.sort_books
     return books.limit(10)
