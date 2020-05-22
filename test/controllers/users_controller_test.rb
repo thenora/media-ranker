@@ -1,6 +1,6 @@
 require "test_helper"
 
-describe UserController do
+describe UsersController do
   it "must get index" do
     get user_index_url
     must_respond_with :success

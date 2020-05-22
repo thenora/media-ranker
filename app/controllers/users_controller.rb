@@ -1,5 +1,5 @@
-class UserController < ApplicationController
-  skip_before_action :require_login, except: [:current]
+class UsersController < ApplicationController
+  # skip_before_action :require_login, except: [:current]
   # TODO or should it be: before_action :require_login, only: [:current]
 
   def login_form
@@ -20,14 +20,18 @@ class UserController < ApplicationController
 
   def login
     # username = params[:user][:username]
-    user = User.find_by(username: username)
+    user = User.find_by(username: params[:username])
 
-    if user
+    if user # returning user
       session[:user_id] = user.id
+      session[:username] = user.username
+      
       flash[:success] = "Successfully logged in as existing user #{username}"
-    else
-      user = User.create(username: username)
+    else # if user doesn't exist
+      user = User.create(username: params[:username]) 
       session[:user_id] = user.id
+      session[:username] = user.username
+
       flash[:success] = "Successfully created new user #{user.username} with ID #{user.id}"
     end
 
@@ -43,7 +47,6 @@ class UserController < ApplicationController
   end
 
   def current
-    # TODO do I need current?
     @current_user = User.find_by(id: session[:user_id])
     unless @current_user
       flash[:error] = "You must be logged in to see this page" # TODO ? What pages must I be logged in to view
