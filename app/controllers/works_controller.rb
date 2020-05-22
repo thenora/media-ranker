@@ -1,4 +1,5 @@
 class WorksController < ApplicationController
+  # Note: no before action because the example site lets us view, delete, edit, and create works without logging in
 
   def index
     @movies = Work.sort_movies

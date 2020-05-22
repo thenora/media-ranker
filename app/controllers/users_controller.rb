@@ -1,8 +1,5 @@
 class UsersController < ApplicationController
-  # skip_before_action :require_login, except: [:current]
-  # TODO or should it be: before_action :require_login, only: [:current]
-
-
+  before_action :require_login, only: [:current]
   
   def index
       @users = User.all
