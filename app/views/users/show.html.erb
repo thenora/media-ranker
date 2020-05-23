@@ -13,15 +13,37 @@
         <th>Voted On</th>
       </tr>
     </thead>
-    <tbody>
-      <!-- TODO add votes -->
-        <tr>
-          <td><a href="/works/1">VOTED WORK NAME GOES HERE</a></td>
-          <td>Nigel Lesch DVM -0</td>
-          <td>1962</td>
-          <td>Book</td>
-          <td>May 15, 2020</td>
+    <tbody>      
+      <% @user.votes.each do |vote| %>
+        <tr>   
+          <td>
+            <%= link_to vote.work.title, work_path(vote.work.id) %>
+          </td>
+          <td>
+            <%= vote.work.creator %>
+          </td>
+          <td>
+            <%= vote.work.publication_year %>
+          </td>
+          <td>
+            <%= vote.work.category %>
+          </td>
+          <td>
+            <%= vote.created_at.strftime("%m/%d/%Y") %>
+          </td>
         </tr>
+      <% end %> 
+<%#
+      <% @user.works.each do |work| % >
+        <tr>
+          <td><%= link_to work.title, work_path(work) % ></td>
+          <td><%= work.creator % ></td>
+          <td><%= work.publication_year % ></td>
+          <td><%= work.category % ></td>
+          <td><%# <%= work.vote.created_at.strftime("%B %d, %Y") % ></td>
+        </tr>
+      <% end % > 
+%>
     </tbody>
   </table>
 </section>
