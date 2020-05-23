@@ -48,6 +48,14 @@
     </ul>
   </nav>
 
+  <section class="flash-msg__section">
+    <% flash.each do |name, message| %>
+      <strong class="<%= name %>">
+        <%= message %>
+      </strong>
+    <% end %>
+  </section>
+
   <!-- TODO Add error messages and flash -->
   <!--   message for creating a new user  <section class="alert__container">
       <div class="alert alert-success">
