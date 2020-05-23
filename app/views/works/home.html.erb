@@ -3,7 +3,7 @@
     <span class="spotlight__header--prefix">Media Spotlight: </span><%= link_to @spotlight.title, work_path(@spotlight.id, class: "spotlight__link-to") %>
   </h2>
   <p class="spotlight__description">
-    <!-- TODO votes and description--> votes - description 
+    <%= @spotlight.votes.count%> votes - <%= @spotlight.description%> 
   </p>  
 </section>
 
