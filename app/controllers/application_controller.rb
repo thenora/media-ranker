@@ -6,9 +6,9 @@ class ApplicationController < ActionController::Base
   # TODO do I need this here? Is this duplicate of users controller?
 
   def require_login
-    if @current_user.nil?
-      flash[:error] = "You must log in to do that"
-      redirect_to login_path # TODO Do I need this?
+    if !current_user
+      flash[:error] = "You must log in to do that" # TODO this is showing up when voting
+      redirect_to request.referrer # TODO Do I need this?
       return
     end
   end

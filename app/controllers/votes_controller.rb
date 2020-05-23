@@ -2,6 +2,7 @@ class VotesController < ApplicationController
   before_action :require_login, only: [:create]
 
   def create
+
     user = User.find_by(id: session[:user_id])
     work = Work.find_by(id: params[:work_id])
     
@@ -11,23 +12,19 @@ class VotesController < ApplicationController
     end
     
     if session[:user_id] # if user is logged in
-      vote 
-    end
-    
+      
+      upvote = Vote.create(
+        user_id: user.id, 
+        work_id: work.id
+      )
+        if upvote.save 
+          flash[:success] = 'Successfully upvoted!'
+        else
+          flash[:error] = 'You already voted for this work'
+        end
+      end
     redirect_back(fallback_location: root_path)
     return
-  end
-
-  def vote
-    upvote = Vote.create(
-      user_id: user.id, 
-      work_id: work.id
-    )
-      if upvote.save 
-        flash[:success] = 'Successfully upvoted!'
-      else
-        flash[:error] = 'You already voted for this work'
-      end
   end
   
   
