@@ -14,7 +14,7 @@
           <%= link_to user.username, user_path(user.id) %>
         </td>
         <td>
-          # <%# TODO after adding votes <%= user.votes.count %>
+          <%= user.votes.count %>
         </td>
         <td>
           <%= user.created_at.strftime("%m/%d/%Y") %> 
