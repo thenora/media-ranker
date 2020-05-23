@@ -11,42 +11,24 @@ class Work < ApplicationRecord
   # TODO DRY up code by creating method that takes a parameter of (category)
 
   def self.sort_movies
-    return Work.where(category: "movie")
+     movies = Work.where(category: "movie").sort_by { |movie| movie.votes.count }
+     return movies.reverse
   end
   
   def self.sort_books
-    return Work.where(category: "book")
+    books = Work.where(category: "book").sort_by { |book| book.votes.count }
+    return books.reverse
   end
 
   def self.sort_albums
-    return Work.where(category: "album")
+    albums = Work.where(category: "album").sort_by { |album| album.votes.count }
+    return albums.reverse
   end
 
-
-  # TODO DRY up code by creating method that takes a parameter of (category)
-
-  def self.top_movies
-    movies = self.sort_movies
-    return movies.limit(10)
-  end
-
-
-  # TODO base top media on votes
-  def self.top_books
-    books = self.sort_books
-    return books.limit(10)
-  end
-
-  def self.top_albums
-    albums = self.sort_albums
-    return albums.limit(10)
-  end
 
   def self.spotlight
-    @works = Work.all
-    return @works.sample
+    @works = Work.all.sort_by { |work| work.votes.count }
+    return @works.reverse[0]
   end
-
-  # TODO Base spotlight on votes
 
 end

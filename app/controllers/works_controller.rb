@@ -8,9 +8,9 @@ class WorksController < ApplicationController
   end
 
   def home
-    @movies = Work.top_movies
-    @books = Work.top_books
-    @albums = Work.top_albums
+    @movies = Work.sort_movies[0..9]
+    @books = Work.sort_books[0..9]
+    @albums = Work.sort_albums[0..9]
     @spotlight = Work.spotlight
   end
 
