@@ -1,4 +1,4 @@
-    <section>
+<section>
   <h2><%= @work.title %></h2>
   <p>Created by: <%= @work.creator %></p>
   <p>Published: <%= @work.publication_year %></p>
@@ -6,13 +6,13 @@
   <section>
     <%= link_to "Back to media ranks", root_path, method: :get, class: "btn btn-primary" %>
     <%= link_to 'Edit', edit_work_path(@work.id), class: "btn btn-primary" %>
-    <a class="btn btn-primary" rel="nofollow" data-method="post" href="/works/712/upvote">Upvote<!--TODO votes--></a>
+    <%= link_to 'Upvote', work_votes_path(@work.id), method: :post, class: "btn btn-primary" %>
     <%= link_to 'Delete', work_path(@work.id), class: "btn btn-primary", method: :delete, data: {confirm: "Are you sure?"} %>
   </section>
 </section>
 
-<section class="works-votes__container"><!-- TODO Votes! -->
-  <h3 class="works-votes__header">0 Votes for this Album</h3>
+<section class="works-votes__container">
+  <h3 class="works-votes__header"><%= @work.votes.count %> Votes for this <%= @work.category %></h3>
   <table class="table">
     <thead>
       <tr>
@@ -21,5 +21,13 @@
       </tr>
     </thead>
     <tbody>
+      <% @work.votes.each do |vote| %>
+        <tr>
+            <td>
+              <%= link_to vote.user.username, user_path(vote.user.id) %>
+            </td>
+            <td><%= vote.created_at.strftime("%m %d, %Y") %></td>
+        </tr>
+      <% end %>
   </ul>
 </section>
