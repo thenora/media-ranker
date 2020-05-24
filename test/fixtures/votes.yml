@@ -13,3 +13,6 @@ vote4:
 vote5:
   work: movie1
   user: user3
+vote6:
+  work: book1
+  user: user3
