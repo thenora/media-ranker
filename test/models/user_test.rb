@@ -88,20 +88,4 @@ describe User do
 
   end
 
-
-  # TODO Test custom methods
-    # For top-10 or spotlight, what if there are less than 10 works? What if there are no works?
-
-  # describe 'relations' do
-  #   it "has an author" do
-  #     book = books(:poodr)
-  #     expect(book.author).must_equal authors(:metz)
-  #   end
-
-  #   it "can set the author" do
-  #     book = Book.new(title: "test book")
-  #     book.author = authors(:metz)
-  #     expect(book.author_id).must_equal authors(:metz).id
-  #   end
-  # end
 end
