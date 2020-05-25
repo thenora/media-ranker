@@ -3,6 +3,8 @@ class WorksController < ApplicationController
 
   def index
     @movies = Work.sort_movies
+    # TODO - not working
+    # @movies = Work.sort_type("movie")
     @books = Work.sort_books
     @albums = Work.sort_albums
   end

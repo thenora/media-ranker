@@ -6,7 +6,12 @@ class Work < ApplicationRecord
   validates :title, uniqueness: { case_sensitive: false} 
   validates :publication_year, presence: true, numericality: { only_integer: true }
 
-  # TODO DRY up code by creating method that takes a parameter of (category)
+  # TODO DRY up code by creating method that takes a parameter of (category) - Code not working
+
+  # def self.sort_type(category)
+  #   items = Work.where(category: category).sort_by { |item| items.votes.count }
+  #    return items.reverse
+  # end
 
   def self.sort_movies
      movies = Work.where(category: "movie").sort_by { |movie| movie.votes.count }
