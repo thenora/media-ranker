@@ -85,7 +85,5 @@ describe User do
         expect(work).must_be_instance_of Work
       end
     end
-
   end
-
 end
