@@ -24,7 +24,7 @@ describe Vote do
       expect(result).must_equal true
     end
 
-    it 'is invalid without a user_id' do
+    it 'is invalid without a user' do
       # Arrange
       @vote2.user_id = nil
     
@@ -37,7 +37,7 @@ describe Vote do
     end
 
 
-    it 'is invalid without a work_id' do
+    it 'is invalid without a work' do
       # Arrange
       @vote2.work_id = nil
     
@@ -67,5 +67,27 @@ describe Vote do
       expect(dup_vote.errors.messages[:user]).must_equal ["You already voted for this work"]
 
     end
+  end
+
+  describe "relationships" do
+
+    it "a vote has one user" do
+      expect(@vote1.user).must_be_instance_of User
+    end
+
+    it "a vote has one work" do
+      expect(@vote1.work).must_be_instance_of Work
+    end
+
+    it "can set the work" do
+      @vote6.work = @movie1
+      expect(@vote6.work).must_equal @movie1
+    end
+
+    it "can set the user" do
+      @vote6.user = @user1
+      expect(@vote6.user).must_equal @user1
+    end
+
   end
 end
