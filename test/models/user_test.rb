@@ -9,8 +9,6 @@ describe User do
     expect(@user1.valid?).must_equal true
   end
 
- # validates :username, presence: true, uniqueness: true
-
   describe 'validations' do
     before do
       # Arrange
