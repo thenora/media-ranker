@@ -73,7 +73,6 @@ class WorksController < ApplicationController
       head :not_found
       return
     elsif @work.destroy
-      # TODO - what about votes when a work is destroyed?
       flash[:success] = "#{@work.title} was successfully deleted."
       redirect_to root_path
       return
