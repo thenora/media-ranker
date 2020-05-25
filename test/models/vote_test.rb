@@ -13,9 +13,6 @@ describe Vote do
   it "can be instantiated" do
     expect(@vote1.valid?).must_equal true
   end
-
-  # validates :user_id, presence: true
-  # validates :work_id, presence: true, uniqueness: { scope: :user_id }
   
   describe 'validations' do
 
@@ -70,41 +67,5 @@ describe Vote do
       expect(dup_vote.errors.messages[:user]).must_equal ["You already voted for this work"]
 
     end
-
-  #   it 'is valid if username is the same with different case' do
-  #     # Arrange
-  #     dup_user2 = User.create(
-  #       username: 'User2'
-  #       )
-
-  #     # Act
-
-  #     # Assert
-  #     expect(dup_user2.valid?).must_equal true
-
-  #   end
-  # end
-
-  # describe "relationships" do
-  #   before do
-  #     @user3 = users(:user3)
-  #   end
-
-  #   it "a user can have many votes" do
-  #     expect(@user3.votes.count).must_equal 2
-
-  #     @user3.votes.each do |vote|
-  #       expect(vote).must_be_instance_of Vote
-  #     end 
-
-  #   end
-
-  #   it "has works through votes" do
-  #     expect(@user3.works.count).must_equal 2
-  #     @user3.works.each do |work|
-  #       expect(work).must_be_instance_of Work
-  #     end
-  #   end
-
   end
 end
