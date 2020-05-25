@@ -27,7 +27,7 @@
               <%= link_to vote.user.username, user_path(vote.user.id) %>
             </td>
             <td>
-              <%= vote.created_at.strftime("%m/%d/%Y") %>
+              <%= vote.created_at.strftime("%B %d, %Y") %>
             </td>
         </tr>
       <% end %>

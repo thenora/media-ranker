@@ -1,5 +1,5 @@
 <h2>User Summary: <%= @user.username %> </h2> <!-- Note: Original site has a link, but that just links to the current page -->
-<p>Joined site <%= @user.created_at.strftime("%m/%d/%Y") %></p>
+<p>Joined site <%= @user.created_at.strftime("%B %d, %Y") %></p>
 
 <section class="user-votes__container">
   <h3 class="user-votes__header">Votes</h3>
@@ -26,24 +26,13 @@
             <%= vote.work.publication_year %>
           </td>
           <td>
-            <%= vote.work.category %>
+            <%= vote.work.category.capitalize %>
           </td>
           <td>
-            <%= vote.created_at.strftime("%m/%d/%Y") %>
+            <%= vote.created_at.strftime("%B %d, %Y") %>
           </td>
         </tr>
       <% end %> 
-<%#
-      <% @user.works.each do |work| % >
-        <tr>
-          <td><%= link_to work.title, work_path(work) % ></td>
-          <td><%= work.creator % ></td>
-          <td><%= work.publication_year % ></td>
-          <td><%= work.category % ></td>
-          <td><%# <%= work.vote.created_at.strftime("%B %d, %Y") % ></td>
-        </tr>
-      <% end % > 
-%>
     </tbody>
   </table>
 </section>
