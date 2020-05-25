@@ -6,8 +6,6 @@ class Work < ApplicationRecord
   validates :title, uniqueness: { case_sensitive: false} 
   validates :publication_year, presence: true, numericality: { only_integer: true }
 
-  # TODO add votes
-
   # TODO DRY up code by creating method that takes a parameter of (category)
 
   def self.sort_movies
