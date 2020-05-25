@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_login, only: [:current]
+  before_action :require_login, only: [:index] # Note - example site displays all users even when not logged in, but I understand that isn't the intended experience.
   
   def index
       @users = User.all
@@ -45,19 +45,4 @@ class UsersController < ApplicationController
     return
   end
 
-  def current
-    @current_user = User.find_by(id: session[:user_id])
-    unless @current_user
-      flash[:error] = "You must be logged in to see this page" # TODO ? What pages must I be logged in to view
-      # TODO Should this be the error message for voting not logged in? "A problem occurred: You must log in to do that"
-      redirect_to root_path
-      return
-    end
-  end
-
-  # private 
-
-  # def user_params
-  #   return params.require(:user).permit(:username)
-  # end
 end
