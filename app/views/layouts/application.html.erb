@@ -48,13 +48,7 @@
     </ul>
   </nav>
 
-  <section class="flash-msg__section">
-    <% flash.each do |name, message| %>
-      <strong class="<%= name %>">
-        <%= message %>
-      </strong>
-    <% end %>
-  </section>
+  
 
   <!-- TODO Add error messages and flash -->
   <!--   message for creating a new user  <section class="alert__container">
@@ -71,8 +65,34 @@
     </section> -->
 
 </header>
-<main>
+
+  <section class="alert__container">
+    <% flash.each do |name, message| %>
+      <div class="alert alert-<%= name %>" >
+        <span>
+          <%= message %>
+        </span>
+      <% end %>
+      <% if @work %>
+        <% if @work.errors.any? %>
+          <ul>
+            <% @work.errors.each do |column, message| %>
+              <li>
+                <%= column.capitalize %> <%= message %>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+    <% end %>
+
+
+  </section>
     
+    
+
+<main>
+
     <%= yield %>
 
 </main>
