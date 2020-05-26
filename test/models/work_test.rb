@@ -2,7 +2,6 @@ require "test_helper"
 
 describe Work do
   before do
-    @album1 = works(:album1)
     @movie1 = works(:movie1)
     @movie2 = works(:movie2)
     @movie3 = works(:movie3)
@@ -10,7 +9,7 @@ describe Work do
   end
 
   it "can be instantiated" do
-    expect(@album1.valid?).must_equal true
+    expect(@book1.valid?).must_equal true
   end
 
   describe "validations" do
@@ -167,7 +166,19 @@ describe Work do
     end
 
     it "sort_albums returns albums" do
-      expect(Work.sort_albums).must_include @album1
+      album1 = Work.create(
+        title: 'album1', 
+        category: 'album',
+        creator: 'Me',
+        description: 'Blah blah stuff n things.',
+        publication_year: 2011
+        )
+
+      expect(Work.sort_albums).must_include album1
+    end
+
+    it "returns an empty array if category is empty" do
+      expect(Work.sort_albums).must_equal []
     end
   end
 

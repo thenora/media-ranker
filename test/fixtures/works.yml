@@ -22,9 +22,3 @@ book1:
   creator: Me
   description: Blah blah stuff n things.
   publication_year: 2011
-album1:
-  title: album1
-  category: album
-  creator: Me Myself & I
-  description: Blah blah stuff n things.
-  publication_year: 2009

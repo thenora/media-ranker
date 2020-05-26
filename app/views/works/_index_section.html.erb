@@ -11,14 +11,18 @@
         </tr>
       </thead>
       <tbody>
-        <% category.each do |item| %>
-          <tr>
-            <td><%= item.votes.count %></td>
-            <td><%= link_to item.title, work_path(item.id) %></td>
-            <td><%= item.creator %></td>
-            <td><%= item.publication_year%></td>
-            <td><%= link_to 'Upvote', work_votes_path(item.id), class: "btn btn-primary", method: :post %></td>
-          </tr>
+        <% if category.empty? %>
+            <li class="list-group-item">Oops! There are no <% plural %>. Add one?</li>
+          <% else %>
+          <% category.each do |item| %>
+            <tr>
+              <td><%= item.votes.count %></td>
+              <td><%= link_to item.title, work_path(item.id) %></td>
+              <td><%= item.creator %></td>
+              <td><%= item.publication_year%></td>
+              <td><%= link_to 'Upvote', work_votes_path(item.id), class: "btn btn-primary", method: :post %></td>
+            </tr>
+          <% end %>
         <% end %>
       </tbody>
     </table>
